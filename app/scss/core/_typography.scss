@@ -1,0 +1,91 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 $baseline 0;
+    color: $color;
+    @include font-size(16);
+    font-weight: 300;
+    vertical-align: bottom;
+
+    a {
+        text-decoration: none;
+    }
+
+    .underline {
+        border-bottom: 2px solid;
+        padding-bottom: 2px;
+    }
+}
+
+h1 {
+    @include font-size(36);
+}
+
+h2 {
+    @include font-size(28);
+}
+
+h3 {
+    @include font-size(22);
+}
+
+h4 {
+    @include font-size(18);
+}
+
+p {
+    margin: 0 0 $baseline 0;
+}
+
+a {
+    color: $link_color;
+
+    &:hover {
+        color: lighten($link_color, 4%);
+    }
+}
+
+ul {
+
+    li {
+        list-style-position: outside;
+    }
+}
+
+
+// Used on ul/ol
+.unstyled {
+    @extend .clearall;
+    list-style: none;
+}
+
+.numbered__list {}
+
+.numbered__list__item {
+    position: relative;
+    padding-left: 46px;
+    margin-bottom: 36px;
+    clear: both;
+    line-height: 1;
+    @include clearfix();
+}
+
+.numbered__list__number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background-color: $meta;
+    padding: $baseline 15px;
+}
+
+.numbered__list__content {
+    line-height: 20px;
+}
+
+.meta {
+    color: $meta_color;
+    @include font-size(14);
+}
+
+.highlight {
+    color: $brand_secondary;
+}

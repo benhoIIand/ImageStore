@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="samplr" class="page__register">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Samplr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        
+        <div class="modal-overlay show clear">
+
+            <div class="modal modal__login">
+
+                <div class="modal__header">
+                    <h3>Register</h3>
+                </div>
+
+                <div class="modal__body">
+
+                    <!-- LOGIN FORM -->
+                    <form action="/register" method="post">
+                        <div class="form-group">
+                            <input type="text" class="input--full" name="name" id="name" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="input--full" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="input--full" name="password" id="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="input--full" name="phone" id="phone" placeholder="Phone Number">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary input--full">Register</button>
+                    </form>
+
+                    <!-- show any messages that come back with authentication -->
+                    <% if (message.length > 0) { %>
+                        <div class="bg-error"><%= message %></div>
+                    <% } %>
+                </div>
+
+        <div class="modal__footer">
+            <p>Already have an account? <a href="/login">Login</a></p>
+        </div>
+
+    </body>
+</html>

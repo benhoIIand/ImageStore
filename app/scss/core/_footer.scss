@@ -1,0 +1,15 @@
+.global-footer {
+    width: 100%;
+    @include gradient(#FCFCFC, #F8F8F8);
+    margin-top: $baseline*4;
+    box-shadow: 0 -1px 4px rgba(0,0,0,.15);
+
+    h4 {
+        color: #ffffff;
+    }
+}
+
+.global-footer__container {
+    @extend .centeredContainer;
+    padding: ($baseline/3)*2 0;
+}

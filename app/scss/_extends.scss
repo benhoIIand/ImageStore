@@ -1,0 +1,25 @@
+.centeredContainer {
+    @include box-sizing();
+    position: relative;
+    // width: 100%;
+    width: $max_width;
+    margin: 0 auto;
+    @include clearfix();
+}
+
+.clearall {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    outline: 0;
+    font: inherit;
+}
+
+.notification {
+    padding: ($baseline/3)*2 10px;
+    border-radius: 3px;
+    margin: $baseline 0;
+    color: #fff;
+    @include font-size(13, 13);
+    font-weight: bold;
+}

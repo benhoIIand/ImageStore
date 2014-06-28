@@ -1,0 +1,173 @@
+@mixin font-size($size: 1.6, $lineheight: $size + ($size*0.5)) {
+    font-size: $size + px;
+    font-size: ($size / 10) + rem;
+
+    @if $lineheight != false {
+        line-height: $lineheight + px;
+        line-height: ($lineheight / 10) + rem;
+    }
+}
+
+@mixin gradient($top, $bottom, $top-pos: 0%, $bottom-pos: 100%) {
+    background-image: -webkit-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+    background-image: -moz-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+    background-image: -o-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+    background-image: -ms-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+    background-image: linear-gradient(to bottom, $top $top-pos, $bottom $bottom-pos);
+}
+
+@mixin image-and-gradient($url, $top, $bottom, $fallback, $top-pos: 0%, $bottom-pos: 100%) {
+    background-image: $fallback url($url);
+    background-image: url($url), -webkit-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+    background-image: url($url), -moz-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+    background-image: url($url), -o-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+    background-image: url($url), -ms-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+    background-image: url($url), linear-gradient(to bottom, $top $top-pos, $bottom $bottom-pos);
+}
+
+@mixin box-shadow($input) {
+    -webkit-box-shadow: $input;
+    box-shadow: $input;
+}
+
+@mixin box-sizing($type: border-box) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    -ms-box-sizing: $type;
+    box-sizing: $type;
+}
+
+@mixin transition($trans) {
+    -webkit-transition: $trans;
+    -moz-transition: $trans;
+    -ms-transition: $trans;
+    -o-transition: $trans;
+    transition: $trans;
+}
+
+@mixin transition-delay($delay) {
+    -webkit-transition-delay: $delay;
+    -moz-transition-delay: $delay;
+    -ms-transition-delay: $delay;
+    -o-transition-delay: $delay;
+    transition-delay: $delay;
+}
+
+@mixin no-select() {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -o-transform: $transform;
+    -ms-transform: $transform;
+    transform: $transform;
+}
+
+@mixin translate3d($x, $y, $z) {
+    @include transform(translate3d($x, $y, $z));
+}
+
+@mixin rotate($deg) {
+    @include transform(rotate($deg));
+}
+
+@mixin scale($deg) {
+    @include transform(scale($deg));
+}
+
+@mixin translateY($px) {
+    @include transform(translateY($px));
+}
+
+@mixin translateZHack() {
+    @include transform(translateZ(0));
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes $name { @content; }
+    @-moz-keyframes $name { @content; }
+    @-ms-keyframes $name { @content; }
+    @keyframes $name { @content; }
+}
+
+@mixin animation-name($name) {
+    -webkit-animation: $name;
+    -moz-animation: $name;
+    -ms-animation: $name;
+    animation: $name;
+}
+
+@mixin font-smoothing() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin sticky() {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+}
+
+@mixin placeholder($color, $shadow: none) {
+    &:-moz-placeholder {
+        color: $color;
+        text-shadow: $shadow;
+    }
+    &::-webkit-input-placeholder {
+        color: $color;
+        text-shadow: $shadow;
+    }
+}
+
+// Implementation of float:left with fix for the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+@mixin float-left {
+    @include float(left);
+}
+
+// Implementation of float:right with fix for the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+@mixin float-right {
+    @include float(right);
+}
+
+// Direction independent float mixin that fixes the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+@mixin float($side: left) {
+    display: inline;
+    float: unquote($side);
+}
+
+// Resets floated elements back to their default of `float: none` and defaults
+// to `display: block` unless you pass `inline` as an argument
+//
+// Usage Example:
+//
+//     body.homepage
+//       #footer li
+//         +float-left
+//     body.signup
+//       #footer li
+//         +reset-float
+@mixin reset-float($display: block) {
+    float: none;
+    display: $display;
+}

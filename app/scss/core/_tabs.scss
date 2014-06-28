@@ -1,0 +1,58 @@
+.nav-tabs {
+    @extend .clearall;
+    list-style: none;
+    border-bottom: 1px solid $border;
+    @include clearfix();
+
+    > li {
+        float: left;
+
+        margin-bottom: -1px;
+
+        > a {
+            display: inline-block;
+            padding: ($baseline/3)*2 16px;
+            background-color: transparent;
+            border: 1px solid transparent;
+            border-radius: $border-radius $border-radius 0 0;
+
+            color: $color;
+            font-size: 14px;
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+                color: darken($color, 5%);
+            }
+
+            &.selected {
+                &,
+                &:hover,
+                &:focus {
+                    background-color: #ffffff;
+                    border: 1px solid $border;
+                    border-bottom-color: #ffffff;
+                    color: $brand;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+
+.tab-content {
+    background-color: #ffffff;
+    padding: ($baseline/3)*4 ($baseline/3)*4;
+    border: 1px solid $border;
+    border-top: none;
+
+    > .tab-pane {
+        display: none;
+    }
+
+    > .active {
+        display: block;
+    }
+}

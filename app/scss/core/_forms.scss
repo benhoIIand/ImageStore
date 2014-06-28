@@ -1,0 +1,118 @@
+input,
+textarea,
+.input {
+    @include box-sizing();
+    display: inline-block;
+    min-width: 220px;
+    padding: 8px;
+    border: 1px solid #bcbcbc;
+    border-radius: 4px;
+    margin-bottom: ($baseline/3)*2;
+    vertical-align: top;
+
+    color: $color;
+    @include placeholder(lighten($color, 40%));
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        background-color: #EEEEEE;
+        color: #666666;
+        opacity: 1;
+        cursor: not-allowed;
+    }
+}
+
+input[type="checkbox"] {
+    vertical-align: baseline;
+    width: 10px;
+    height: 12px;
+    margin-right: 4px;
+}
+
+.input--medium {
+    min-width: 280px;
+}
+
+.input--full {
+    width: 100%;
+}
+
+textarea {
+    min-height: $baseline*9;
+}
+
+label {
+    display: inline-block;
+    margin-top: 4px;
+}
+
+fieldset {
+    @extend .clearall;
+}
+
+.form-group {
+    display: block;
+    margin-bottom: ($baseline/3)*2;
+
+    label {
+        display: block;
+        margin-bottom: $baseline/4;
+    }
+
+    input + label {
+        display: inline;
+    }
+}
+
+.form-group--small {
+    @include font-size(14);
+}
+
+
+// Notifications of form validation
+.bg-info {
+    @extend .notification;
+    background-color: $info;
+}
+
+.bg-error {
+    @extend .notification;
+    background-color: $error;
+}
+
+.bg-success {
+    @extend .notification;
+    background-color: $success;
+}
+
+.help-block {
+    display: block;
+    color: $error;
+    @include font-size(13, 13);
+    font-weight: 500;
+}
+
+.has-error {
+    label {
+        color: $error;
+        font-weight: bold;
+    }
+
+    input,
+    textarea {
+        border-color: $error;
+    }
+
+    .bg-error {
+        display: block;
+    }
+}
+
+
+// This had no good place to live
+.fos_user_resetting_reset {
+    width: 300px;
+}

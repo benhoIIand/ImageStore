@@ -1,0 +1,32 @@
+{
+  "name": "GifStore",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "express": "~3.4.8",
+    "mongoose": "~3.8.7",
+    "lodash": "~2.4.1",
+    "async": "~0.2.10",
+    "passport": "~0.2.0",
+    "passport-local": "~1.0.0",
+    "bcrypt-nodejs": "0.0.3",
+    "connect-flash": "~0.1.1",
+    "ejs": "~1.0.0",
+    "request": "~2.36.0"
+  },
+  "scripts": {
+    "start": "node server"
+  },
+  "devDependencies": {
+    "pretty-hrtime": "~0.2.1",
+    "gulp-util": "~2.2.19",
+    "gulp": "~3.8.5",
+    "gulp-watch": "~0.6.8",
+    "gulp-notify": "~1.4.0",
+    "gulp-jshint": "~1.6.3",
+    "gulp-sass": "~0.7.2",
+    "watchify": "~0.10.2",
+    "gulp-nodemon": "~1.0.4",
+    "karma": "~0.12.16"
+  }
+}

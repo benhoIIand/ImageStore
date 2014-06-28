@@ -1,0 +1,33 @@
+.modal__login {
+
+    form {
+        text-align: left;
+    }
+
+    label {
+        padding-left: 4px;
+        font-weight: 500;
+    }
+
+    input {
+        padding: 10px;
+    }
+
+    .modal__footer {
+        @include font-size(14);
+    }
+}
+
+
+.page__login,
+.page__register {
+
+    &,
+    body {
+        height: 100%;
+    }
+
+    body {
+        background: url('https://s-passets-ec.pinimg.com/webapp/style/app/desktop/images/inspired/bg_gb_home_grid.5e503fa7.jpg') center center no-repeat;
+    }
+}

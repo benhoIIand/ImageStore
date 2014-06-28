@@ -1,0 +1,142 @@
+.btn,
+input[type="submit"] {
+    @include box-sizing();
+    position: relative;
+    display: inline-block;
+    min-width: 120px;
+    padding: ($baseline/3)*2 22px;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+
+    vertical-align: top;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: visible;
+
+    @include font-size(15);
+    font-family: inherit;
+    font-weight: bold;
+    text-decoration: none;
+
+    &.atv,
+    &:active {
+        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+.btn-default {
+    color: #333333;
+    background-color: #ffffff;
+    border-color: #cccccc;
+
+    &.hvr,
+    &:hover {
+        color: #333;
+        background-color: #ebebeb;
+        border-color: #adadad;
+    }
+
+    &.atv,
+    &:active {
+        color: #333;
+        background-color: #ebebeb;
+        border-color: #adadad;
+        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    }
+
+    &:focus {
+        outline: none;
+        color: #333;
+        background-color: #ebebeb;
+        border-color: #adadad;
+    }
+}
+
+.btn--full {
+    width: 100%;
+}
+
+.btn-primary {
+    @include gradient($call_to_action, darken($call_to_action, 4%));
+    border: 1px solid darken($call_to_action, 10%);
+
+    color: #ffffff;
+
+    &.hvr,
+    &:hover {
+        @include gradient($call_to_action, darken($call_to_action, 2%));
+        color: #ffffff;
+    }
+
+    &.atv,
+    &:active {
+        @include gradient(darken($call_to_action, 6%), darken($call_to_action, 6%));
+        @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.1));
+    }
+}
+
+.btn-secondary {
+    @include gradient(#FFBF00, darken(#FFBF00, 4%));
+    border: 1px solid darken(#FFBF00, 10%);
+    color: $color;
+    font-weight: bold;
+
+    &.hvr,
+    &:hover {
+        @include gradient(#FFBF00, darken(#FFBF00, 2%));
+        color: lighten($color, 5%);
+    }
+
+    &.atv,
+    &:active {
+        @include gradient(darken(#FFBF00, 2%), darken(#FFBF00, 4%));
+        @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.1));
+    }
+}
+
+// Using the bootstrap `-xs` notation as the person who built
+// an AngularJS directive didn't make it framework agnostic - such a dope
+.btn-xs,
+.btn--small {
+    padding: $baseline/3 12px;
+    @include font-size(13, false);
+}
+
+// The correct modifier notation
+.btn--large {
+    padding: 8px 32px;
+    @include font-size(20, 31);
+}
+
+
+// Button Group
+
+.btn-group {
+
+    .btn + .btn {
+        margin-left: -1px;
+    }
+
+    > .btn:first-child:not(:last-child) {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    > .btn:not(:first-child):not(:last-child) {
+        border-radius: 0;
+    }
+
+    > .btn:last-child:not(:first-child) {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+}

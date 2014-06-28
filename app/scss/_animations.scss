@@ -1,0 +1,51 @@
+// Fade In Down
+@include keyframes(fadeInDown) {
+    0% {
+        opacity: 0;
+        @include translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        @include translateY(0);
+    }
+};
+
+@include keyframes(fadeInDownDelay30) {
+    0% {
+        opacity: 0;
+        @include translateY(-20px);
+    }
+    30% {
+        opacity: 0;
+        @include translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        @include translateY(0);
+    }
+};
+
+@include keyframes(fadeInDownDelay50) {
+    0% {
+        opacity: 0;
+        @include translateY(-20px);
+    }
+    50% {
+        opacity: 0;
+        @include translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        @include translateY(0);
+    }
+};
+
+// Fade In
+@include keyframes(fadeIn) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+};

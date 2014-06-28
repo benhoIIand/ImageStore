@@ -1,0 +1,45 @@
+// Layout
+$baseline: 12px;
+$max_width: 1020px;
+$border-radius: 5px;
+$bg-color: #F5F5F5;
+
+// Solids
+$brand: #1D4760;
+$brand_secondary: #00A4DB;
+$brand_third: #006588;
+$brand_strong: #00B0F3;
+$brand_weak: #43617E;
+
+$meta: #D6D6D6;
+$border: #C4C4C4;
+$info: $brand_secondary;
+$error: #E74E4E;
+$success: #49B21F;
+$call_to_action: $brand_secondary;
+// $call_to_action: #E7E700;
+
+
+// Font
+$color: #333;
+$link_color: $brand_secondary;
+$meta_color: #767676;
+$call_to_action_color: #FFBF00;
+
+
+// Components
+$header_nav_height: 54px;
+
+$integrate_logos_num: 6;
+$integrate_logos_width: 180px;
+
+// z-index
+$header_zindex: 10;
+
+
+// grid
+$blueprint-grid-columns: 12;
+$blueprint-grid-width: 65px;
+$blueprint-grid-margin: 20px;
+$blueprint-grid-outer-width: $blueprint-grid-width + $blueprint-grid-margin;
+$blueprint-container-size: $blueprint-grid-outer-width * $blueprint-grid-columns - $blueprint-grid-margin;

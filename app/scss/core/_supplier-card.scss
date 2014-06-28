@@ -1,0 +1,45 @@
+.supplier-card {
+    @include clearfix();
+    @include box-sizing();
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: $baseline;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    float: left;
+
+    p {
+        margin: 0;
+    }
+
+    .meta {
+        display: inline-block;
+        width: 40%;
+    }
+}
+
+.supplier-image {
+    width: 100px;
+    height: 70px;
+    background-position: center center;
+    background-size: cover;
+    margin-right: 8px;
+    float: left;
+}
+
+.supplier-details {
+    float: left;
+
+    li {
+
+        a {
+            margin-bottom: $baseline/2;
+        }
+    }
+}
+
+.supplier-actions {
+    width: 100%;
+    text-align: right;
+    clear: both;
+}
