@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongodb://localhost/gifstore'
+    url: 'mongodb://localhost/imagestore'
 };

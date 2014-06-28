@@ -1,4 +1,4 @@
-GifStore
+ImageStore
 =======
 
 Simple storage of gifs (and other images)
