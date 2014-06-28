@@ -6,6 +6,10 @@ module.exports = {
         res.sendfile(path.normalize(__dirname +'/../app/app.html'));
     },
 
+    sendFile: function(req, res) {
+        res.sendfile(path.normalize(__dirname +'/../store/'+ req.params.file));
+    },
+
     login: function(req, res) {
         res.render('login.ejs', {
             referrer: req.query.r,

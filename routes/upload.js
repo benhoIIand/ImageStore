@@ -51,7 +51,7 @@ module.exports = {
 
         downloadImage(uri, function(tempFilename, size) {
             saveImage(tempFilename, size, function(filename) {
-                res.send(filename);
+                res.redirect('/'+ filename);
             });
         });
     }

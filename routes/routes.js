@@ -22,6 +22,9 @@ function isLoggedInAPI(req, res, next) {
 
 module.exports = function(app, passport) {
 
+    // Get Image
+    app.get('/:file', isLoggedInAPI, index.sendFile);
+
     // Upload
     app.get('/api/upload', isLoggedInAPI, upload.byUrl);
 
