@@ -1,7 +1,9 @@
+var path = require('path');
+
 module.exports = {
 
     app: function(req, res) {
-        res.sendfile('app/app.html');
+        res.sendfile(path.normalize(__dirname +'/../app/app.html'));
     },
 
     login: function(req, res) {
