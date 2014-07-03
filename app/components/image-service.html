@@ -1,0 +1,24 @@
+<link rel="import" href="../vendor/polymer/polymer.html">
+<link rel="import" href="../vendor/core-ajax/core-ajax.html">
+
+<polymer-element name="image-service" attributes="assets">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <core-ajax id="ajax" auto url="/api/assets" on-core-response="{{ assetsLoaded }}" handleAs="json"></core-ajax>
+    </template>
+    <script>
+        Polymer('image-service', {
+            created: function() {
+                this.assets = [];
+            },
+            assetsLoaded: function() {
+                this.assets = this.$.ajax.response.slice(0);
+            }
+        });
+    </script>
+</polymer-element>

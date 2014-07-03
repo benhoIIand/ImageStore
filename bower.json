@@ -1,0 +1,14 @@
+{
+  "name": "imagestore",
+  "version": "0.0.0",
+  "homepage": "https://github.com/hollandben/ImageStore",
+  "authors": [
+    "Ben Holland <benholland99@gmail.com>"
+  ],
+  "description": "Store images from around the web",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.3"
+  }
+}
