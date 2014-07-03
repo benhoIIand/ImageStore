@@ -22,6 +22,10 @@ function isLoggedInAPI(req, res, next) {
 
 module.exports = function(app, passport) {
 
+    app.get('/app/*', function(req, res) {
+        res.sendFile('app/'+ req.params[0]);
+    });
+
     // Get Image
     app.get('/:file', isLoggedInAPI, index.sendFile);
 
@@ -57,10 +61,6 @@ module.exports = function(app, passport) {
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/login');
-    });
-
-    app.get('/templates/*', function(req, res) {
-        res.sendFile('template/'+ req.params[0]);
     });
 
     // Default
