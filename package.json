@@ -27,6 +27,7 @@
     "gulp-sass": "~0.7.2",
     "watchify": "~0.10.2",
     "gulp-nodemon": "~1.0.4",
-    "karma": "~0.12.16"
+    "karma": "~0.12.16",
+    "jshint-stylish": "^0.2.0"
   }
 }

@@ -16,10 +16,10 @@ tasks.forEach(function(task) {
 gulp.task('default', ['sass']);
 
 // Dev
-gulp.task('dev', ['sass', 'jshint', 'test:unit:dev', 'watch']);
+gulp.task('dev', ['sass', 'jshint', 'watch']);
 
 // CI build
-gulp.task('build:ci', ['jshint', 'test:unit', 'sass']);
+gulp.task('build:ci', ['jshint', 'sass']);
 
 // Prod build
 gulp.task('build:prod', ['sass']);
