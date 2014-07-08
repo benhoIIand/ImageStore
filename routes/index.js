@@ -6,6 +6,10 @@ module.exports = {
         res.sendfile(path.normalize(__dirname +'/../app/app.html'));
     },
 
+    about: function(req, res) {
+        res.sendfile(path.normalize(__dirname +'/../app/about.html'));
+    },
+
     sendFile: function(req, res) {
         res.sendfile(path.normalize(__dirname +'/../store/'+ req.params.file));
     },
@@ -20,5 +24,5 @@ module.exports = {
     register: function(req, res) {
         res.render('register.ejs', { message: req.flash('signupMessage') });
     }
-    
+
 };
