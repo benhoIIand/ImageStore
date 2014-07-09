@@ -2,7 +2,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 $baseline 0;
     color: $color;
     @include font-size(16);
-    font-weight: 300;
+    font-weight: 500;
     vertical-align: bottom;
 
     a {

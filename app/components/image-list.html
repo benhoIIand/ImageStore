@@ -11,10 +11,11 @@
 
         <image-service assets="{{ assets }}"></image-service>
 
-        <div layout vertical center>
+        <div>
             <template repeat="{{ asset in assets }}">
-                <h2>ID - {{ asset._id }}</h2>
-                <img src="/{{ asset.filename }}">
+                <div class="asset">
+                    <img class="asset__image" src="/{{ asset.filename }}">
+                </div>
             </template>
         </div>
     </template>

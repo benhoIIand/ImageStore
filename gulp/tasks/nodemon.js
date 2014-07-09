@@ -4,6 +4,6 @@ var gulp = require('gulp'),
 gulp.task('nodemon', function () {
     nodemon({
         script: 'server.js',
-        ext: 'html js'
+        ext: 'js'
     });
 });
