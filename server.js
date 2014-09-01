@@ -16,7 +16,9 @@ app.configure(function() {
     app.use(express.favicon('app/favicon.ico'));
 
     // On the fly image resizing
-    app.use('/', quickthumb.static(__dirname + '/store'));
+    app.use('/', quickthumb.static(__dirname + '/store', {
+        type: 'resize'
+    }));
 
     app.set('view engine', 'ejs'); // set up ejs for templating
     app.set('views' ,__dirname + '/app');
