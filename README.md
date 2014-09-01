@@ -25,7 +25,6 @@ __GET /api/upload__
 Upload an image publically available on the web. This is done by setting the `url` parameter.
 
 E.g.
-
 ```
 /api/upload?url=http://awesomeashild.files.wordpress.com/2013/10/borat-thumbs-up.jpg
 ```
