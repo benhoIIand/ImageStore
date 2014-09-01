@@ -2,7 +2,8 @@ var express  = require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),
     flash    = require('connect-flash'),
-    dbConfig = require('./config/database');
+    dbConfig = require('./config/database'),
+    quickthumb = require('quickthumb');
 
 var app = express();
 
@@ -13,6 +14,9 @@ app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.static(__dirname + '/app'));
     app.use(express.favicon('app/favicon.ico'));
+
+    // On the fly image resizing
+    app.use('/', quickthumb.static(__dirname + '/store'));
 
     app.set('view engine', 'ejs'); // set up ejs for templating
     app.set('views' ,__dirname + '/app');

@@ -28,7 +28,9 @@
         <div horizontal layout wrap>
             <template repeat="{{asset in assets}}">
                 <div class="asset">
-                    <img class="asset__preview" src="/{{asset.filename}}">
+                    <a href="/{{asset.filename}}" target="_blank">
+                        <img class="asset__preview" src="/{{asset.filename}}?dim=x200">
+                    </a>
                     <div class="asset__actions">
                         <button>Add Tags</button>
                         <button on-click="{{delete}}" id="{{asset._id}}">Delete</button>
