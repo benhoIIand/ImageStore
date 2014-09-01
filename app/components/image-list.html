@@ -1,5 +1,7 @@
 <link rel="import" href="/vendor/polymer/polymer.html">
 <link rel="import" href="/components/image-service.html">
+<link rel="import" href="/vendor/core-ajax/core-ajax.html">
+<link rel="import" href="/vendor/core-ajax/core-xhr.html">
 
 <polymer-element name="image-list" attributes="">
     <template>
@@ -7,18 +9,56 @@
             :host {
                 display: block;
             }
+            .asset {
+                background-color: #FFFFFF;
+                padding: 10px;
+                border: 1px solid #C4C4C4;
+                margin: 4px;
+            }
+            .asset__preview {
+                width: 180px;
+                height: auto;
+            }
         </style>
 
-        <image-service assets="{{ assets }}"></image-service>
+        <core-xhr id="xhr"></core-xhr>
 
-        <div layout vertical center>
-            <template repeat="{{ asset in assets }}">
-                <h2>ID - {{ asset._id }}</h2>
-                <img src="/{{ asset.filename }}">
+        <image-service assets="{{assets}}"></image-service>
+
+        <div horizontal layout wrap>
+            <template repeat="{{asset in assets}}">
+                <div class="asset">
+                    <img class="asset__preview" src="/{{asset.filename}}">
+                    <div class="asset__actions">
+                        <button>Add Tags</button>
+                        <button on-click="{{delete}}" id="{{asset._id}}">Delete</button>
+                    </div>
+                </div>
             </template>
         </div>
     </template>
     <script>
-        Polymer({});
+        Polymer('image-list', {
+            removeFromArray: function(id) {
+                this.assets.some(function(asset, i) {
+                    if(id.trim() === asset._id.trim()) {
+                        this.assets.splice(i, 1);
+                        return true;
+                    }
+                }.bind(this));
+            },
+            delete: function(event, detail, sender) {
+                var id = sender.getAttribute('id'),
+                    self = this;
+
+                this.$.xhr.request({
+                    url: '/api/assets/'+ id,
+                    method: 'DELETE',
+                    callback: function() {
+                        self.removeFromArray(id);
+                    }
+                });
+            }
+        });
     </script>
 </polymer-element>
