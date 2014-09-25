@@ -29,6 +29,7 @@
     "watchify": "~0.10.2",
     "gulp-nodemon": "~1.0.4",
     "karma": "~0.12.16",
-    "jshint-stylish": "^0.2.0"
+    "jshint-stylish": "^0.2.0",
+    "api-benchmark": "~0.1.42"
   }
 }
