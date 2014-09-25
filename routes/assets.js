@@ -21,7 +21,7 @@ module.exports = {
 
     getAll: function(req, res) {
         var q = req.query,
-            sort = q.sort ? q.sort.toLowerCase() : 'date',
+            sort = q.sort ? q.sort.toLowerCase() : 'date_uploaded',
             order = q.order ? q.order.toLowerCase() : '-1',
             limit = q.limit ? (q.limit === 0 ? null : q.limit) : 100,
             fields = q.fields ? q.fields.toLowerCase() : '';
