@@ -11,6 +11,7 @@ module.exports = {
     },
 
     sendFile: function(req, res) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000');
         res.sendfile(path.normalize(__dirname + '/../store/' + req.params.file));
     },
 
