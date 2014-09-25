@@ -1,7 +1,7 @@
-var express  = require('express'),
+var express = require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),
-    flash    = require('connect-flash'),
+    flash = require('connect-flash'),
     dbConfig = require('./config/database'),
     quickthumb = require('quickthumb');
 
@@ -21,7 +21,7 @@ app.configure(function() {
     }));
 
     app.set('view engine', 'ejs'); // set up ejs for templating
-    app.set('views' ,__dirname + '/app');
+    app.set('views', __dirname + '/app');
 
     // app.use(express.logger('dev'));
 
@@ -31,7 +31,9 @@ app.configure(function() {
     }));
 
     // required for passport
-    app.use(express.session({ secret: 'ilovescotchscotchyscotchscotch' }));
+    app.use(express.session({
+        secret: 'ilovescotchscotchyscotchscotch'
+    }));
     app.use(passport.initialize());
     app.use(passport.session());
     app.use(flash());
@@ -44,6 +46,6 @@ mongoose.connect(dbConfig.url);
 // require('./config/passport')(passport);
 require('./routes/routes.js')(app, passport);
 
-app.listen(app.get('port'), function(){
+app.listen(app.get('port'), function() {
     console.log('Express server listening on port: ' + app.get('port'));
 });

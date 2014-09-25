@@ -14,6 +14,10 @@ var assetSchema = new mongoose.Schema({
     }
 });
 
-// assetSchema.index({ name: 1, transactionId: 1 }, { unique: true });
+// assetSchema.index({
+//     filename: 1
+// }, {
+//     unique: true
+// });
 
 module.exports = mongoose.model('Asset', assetSchema);

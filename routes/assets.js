@@ -10,20 +10,20 @@ module.exports = {
                 $in: ids
             }
         })
-        .exec(function(err, results) {
-            if(err) {
-                res.json(err);
-            } else {
-                res.json(results);
-            }
-        });
+            .exec(function(err, results) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(results);
+                }
+            });
     },
 
     getAll: function(req, res) {
-        var q      = req.query,
-            sort   = q.sort   ? q.sort.toLowerCase()   : 'date',
-            order  = q.order  ? q.order.toLowerCase()  : '1',
-            limit  = q.limit  ? (q.limit === 0 ? null : q.limit) : 100,
+        var q = req.query,
+            sort = q.sort ? q.sort.toLowerCase() : 'date',
+            order = q.order ? q.order.toLowerCase() : '-1',
+            limit = q.limit ? (q.limit === 0 ? null : q.limit) : 100,
             fields = q.fields ? q.fields.toLowerCase() : '';
 
         order = order === 'asc' ? 1 : (order === 'desc' ? -1 : order);
@@ -33,27 +33,27 @@ module.exports = {
 
         var query = {};
 
-        if(q.date_start || q.date_end) {
+        if (q.date_start || q.date_end) {
             query['date'] = {};
         }
 
-        if(q.date_start) query['date']['$gte'] = formatDate(q.date_start);
-        if(q.date_end)   query['date']['$lte'] = formatDate(q.date_end);
+        if (q.date_start) query['date']['$gte'] = formatDate(q.date_start);
+        if (q.date_end) query['date']['$lte'] = formatDate(q.date_end);
 
         fields = fields.replace(/,/g, ' ');
 
         Assets.find()
-        .where(query)
-        .sort(sortObj)
-        .limit(limit)
-        .select(fields)
-        .exec(function(err, results) {
-            if(err) {
-                res.json(err);
-            } else {
-                res.json(results);
-            }
-        });
+            .where(query)
+            .sort(sortObj)
+            .limit(limit)
+            .select(fields)
+            .exec(function(err, results) {
+                if (err) {
+                    res.json(err);
+                } else {
+                    res.json(results);
+                }
+            });
     },
 
     create: function(req, res) {
@@ -67,7 +67,7 @@ module.exports = {
                     res.json(e);
                 });
             });
-        } catch(e) {
+        } catch (e) {
             throw Error('Create category:', e);
         }
     },
@@ -75,7 +75,7 @@ module.exports = {
     update: function(req, res) {
         var ids = req.params.id.split(',');
 
-        if(ids.length === 0 || ids[0] === 'undefined') {
+        if (ids.length === 0 || ids[0] === 'undefined') {
             res.json(400, 'No id provided');
             return false;
         }
@@ -94,7 +94,7 @@ module.exports = {
     delete: function(req, res) {
         var ids = req.params.id.split(',');
 
-        if(ids.length === 0 || ids[0] === 'undefined') {
+        if (ids.length === 0 || ids[0] === 'undefined') {
             res.json(400, 'No id provided');
             return false;
         }
