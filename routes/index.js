@@ -3,15 +3,16 @@ var path = require('path');
 module.exports = {
 
     app: function(req, res) {
-        res.sendfile(path.normalize(__dirname +'/../app/app.html'));
+        res.sendfile(path.normalize(__dirname + '/../app/app.html'));
     },
 
     about: function(req, res) {
-        res.sendfile(path.normalize(__dirname +'/../app/about.html'));
+        res.sendfile(path.normalize(__dirname + '/../app/about.html'));
     },
 
     sendFile: function(req, res) {
-        res.sendfile(path.normalize(__dirname +'/../store/'+ req.params.file));
+        res.setHeader('Cache-Control', 'public, max-age=31536000');
+        res.sendfile(path.normalize(__dirname + '/../store/' + req.params.file));
     },
 
     login: function(req, res) {
@@ -22,7 +23,9 @@ module.exports = {
     },
 
     register: function(req, res) {
-        res.render('register.ejs', { message: req.flash('signupMessage') });
+        res.render('register.ejs', {
+            message: req.flash('signupMessage')
+        });
     }
 
 };

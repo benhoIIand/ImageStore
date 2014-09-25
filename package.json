@@ -12,8 +12,7 @@
         "bcrypt-nodejs": "0.0.3",
         "connect-flash": "~0.1.1",
         "ejs": "~1.0.0",
-        "request": "~2.36.0",
-        "quickthumb": "0.0.9"
+        "request": "~2.36.0"
     },
     "scripts": {
         "start": "node server"
