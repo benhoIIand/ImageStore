@@ -11,7 +11,9 @@ app.configure(function() {
     app.use(express.methodOverride());
     app.use(express.cookieParser());
     app.use(express.bodyParser());
-    app.use(express.static(__dirname + '/app'));
+    app.use(express.static(__dirname + '/app', {
+        maxAge: 31536000000
+    }));
     app.use(express.favicon('app/favicon.ico'));
 
     app.set('view engine', 'ejs'); // set up ejs for templating
