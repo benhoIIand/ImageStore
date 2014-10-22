@@ -1,23 +1,55 @@
-<link rel="import" href="/vendor/polymer/polymer.html">
-<link rel="import" href="/components/image-service.html">
-<link rel="import" href="/vendor/core-ajax/core-ajax.html">
-<link rel="import" href="/vendor/core-ajax/core-xhr.html">
+<link href="/vendor/polymer/polymer.html" rel="import">
+<link href="/components/image-service.html" rel="import">
+<link href="/vendor/core-ajax/core-ajax.html" rel="import">
+<link href="/vendor/core-ajax/core-xhr.html" rel="import">
+<link href="/vendor/core-icons/core-icons.html" rel="import">
+<link href="/vendor/paper-input/paper-input.html" rel="import">
+<link href="/vendor/paper-fab/paper-fab.html" rel="import">
 
 <polymer-element name="image-list" attributes="">
     <template>
         <style>
-            :host {
+            .asset {
+                position: relative;
+                background-color: #FFFFFF;
+                max-width: 780px;
+                padding: 0px 60px 30px 60px;
+                border-bottom: 1px solid #CCC;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .asset paper-fab[icon="delete"] {
+                display: none;
+            }
+            .asset:hover paper-fab[icon="delete"] {
                 display: block;
             }
-            .asset {
-                background-color: #FFFFFF;
-                padding: 10px;
-                border: 1px solid #C4C4C4;
-                margin: 4px;
+            .image-wrapper {
+                display: inline-block;
             }
-            .asset__preview {
-                width: 180px;
+            .image {
+                max-width: 600px;
                 height: auto;
+                background: #333;
+                padding: 4px;
+            }
+            .actions {
+                margin: 6px 0;
+            }
+            paper-input {
+                margin: 6px auto;
+                text-align: center;
+            }
+            paper-fab[icon="delete"] {
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: #4285f4;
+                color: #fff;
+            }
+            core-icon {
+                transition: all 0.2s;
+                -webkit-transition: all 0.2s;
             }
         </style>
 
@@ -25,15 +57,21 @@
 
         <image-service assets="{{assets}}"></image-service>
 
-        <div horizontal layout wrap>
+        <div vertical layout center>
             <template repeat="{{asset in assets}}">
                 <div class="asset">
-                    <a href="/{{asset.filename}}" target="_blank">
-                        <img class="asset__preview" src="/{{asset.filename}}">
+                    <paper-fab mini icon="delete" on-click="{{delete}}" id="{{asset._id}}"></paper-fab>
+
+                    <div class="actions">
+                        <paper-input label="Name" value="Something"></paper-input>
+                    </div>
+
+                    <a href="/{{asset.filename}}" target="_blank" class="image-wrapper">
+                        <img class="image" src="/{{asset.filename}}">
                     </a>
-                    <div class="asset__actions">
-                        <button>Add Tags</button>
-                        <button on-click="{{delete}}" id="{{asset._id}}">Delete</button>
+
+                    <div class="actions">
+                        <paper-input label="Tags"></paper-input>
                     </div>
                 </div>
             </template>
