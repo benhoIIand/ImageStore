@@ -1,5 +1,5 @@
-ImageStore
-==========
+ImageStore App
+==============
 
 ImageStore is a NodeJS application that stores images via an API, similar to Imgur's RESTful API.
 
